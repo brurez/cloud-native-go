@@ -1,7 +1,7 @@
 package main
 
 import (
-	"cloudNativeGo/api"
+	"cloud-native-go/api"
 	"fmt"
 	"net/http"
 	"os"
@@ -10,7 +10,8 @@ import (
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/api/echo", echo)
-	http.HandleFunc("/api/books", api.BookHandleFunc)
+	http.HandleFunc("/api/books", api.BooksHandleFunc)
+	http.HandleFunc("/api/books/", api.BookHandleFunc)
 
 	http.ListenAndServe(port(), nil)
 }
@@ -34,4 +35,3 @@ func index(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Hello cloud native Go.")
 }
-

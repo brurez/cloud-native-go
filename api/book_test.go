@@ -7,7 +7,7 @@ import (
 )
 
 func TestBookToJSON(t *testing.T) {
-	book := Book{Title: "Cloud Native Go", Author: "Bruno", ISBN: "1234" }
+	book := Book{Title: "Cloud Native Go", Author: "Bruno", ISBN: "1234"}
 	json := book.toJSON()
 
 	assert.Equal(t, "{\"title\":\"Cloud Native Go\",\"author\":\"Bruno\",\"isbn\":\"1234\"}",
@@ -16,8 +16,8 @@ func TestBookToJSON(t *testing.T) {
 
 func TestBookFromJSON(t *testing.T) {
 	json := []byte("{\"title\":\"Cloud Native Go\",\"author\":\"Bruno\",\"isbn\":\"1234\"}")
-	book := fromJSON(json)
+	book := FromJSON(json)
 
-	assert.Equal(t, Book{Title: "Cloud Native Go", Author: "Bruno", ISBN: "1234" },
+	assert.Equal(t, Book{Title: "Cloud Native Go", Author: "Bruno", ISBN: "1234"},
 		book, "Something went wrong")
 }
